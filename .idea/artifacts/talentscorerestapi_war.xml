@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="talentscorerestapi:war">
+    <output-path>$PROJECT_DIR$/talentscorerestapi/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>talentscorerestapi</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="talentscorerestapi-0.0.1.war">
+      <element id="artifact" artifact-name="talentscorerestapi:war exploded" />
+    </root>
+  </artifact>
+</component>
