@@ -5,7 +5,6 @@ import com.company.dto.commonDTO.CommonSpecialSkillsDTO;
 import com.company.dto.entityDTO.*;
 import com.company.entity.*;
 import com.company.inter.*;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-//@RequiredArgsConstructor
 public class SpecialSkillController {
     @Autowired
     private SpecialSkillQuestionRepository specialSkillsQuestionsRepository;
@@ -34,33 +32,33 @@ public class SpecialSkillController {
         List<SpecialSkillQuestion> specialSkillsQuestions = specialSkillsQuestionsRepository.findAll();
         List<SpecialSkillAnswer> specialSkillsAnswers = specialSkillsAnswersRepository.findAll();
 
-        List<SpecialSkillsQuestionDTO> specialSkillsQuestionDTOS = new ArrayList<>();
-        List<SpecialSkillsAnswerDTO> specialSkillsAnswerDTOS = new ArrayList<>();
+        List<SpecialSkillQuestionDTO> specialSkillQuestionDTOS = new ArrayList<>();
+        List<SpecialSkillAnswerDTO> specialSkillAnswerDTOS = new ArrayList<>();
 
         for (SpecialSkillQuestion u : specialSkillsQuestions) {
-            specialSkillsQuestionDTOS.add(new SpecialSkillsQuestionDTO(u));
+            specialSkillQuestionDTOS.add(new SpecialSkillQuestionDTO(u));
         }
         for (SpecialSkillAnswer u : specialSkillsAnswers) {
-            specialSkillsAnswerDTOS.add(new SpecialSkillsAnswerDTO(u));
+            specialSkillAnswerDTOS.add(new SpecialSkillAnswerDTO(u));
         }
 
 
         List specialSkillsHasList = new ArrayList();
-        specialSkillsHasList.add(specialSkillsQuestionDTOS.get(0));
-        specialSkillsHasList.add(specialSkillsAnswerDTOS.get(0));
-        specialSkillsHasList.add(specialSkillsAnswerDTOS.get(1));
+        specialSkillsHasList.add(specialSkillQuestionDTOS.get(0));
+        specialSkillsHasList.add(specialSkillAnswerDTOS.get(0));
+        specialSkillsHasList.add(specialSkillAnswerDTOS.get(1));
 
         List specialSkillsList = new ArrayList();
-        specialSkillsList.add(specialSkillsQuestionDTOS.get(1));
-        specialSkillsList.add(specialSkillsAnswerDTOS.get(2));
-        specialSkillsList.add(specialSkillsAnswerDTOS.get(3));
-        specialSkillsList.add(specialSkillsAnswerDTOS.get(4));
-        specialSkillsList.add(specialSkillsAnswerDTOS.get(5));
+        specialSkillsList.add(specialSkillQuestionDTOS.get(1));
+        specialSkillsList.add(specialSkillAnswerDTOS.get(2));
+        specialSkillsList.add(specialSkillAnswerDTOS.get(3));
+        specialSkillsList.add(specialSkillAnswerDTOS.get(4));
+        specialSkillsList.add(specialSkillAnswerDTOS.get(5));
 
         List specialSkillsLevelList = new ArrayList();
-        specialSkillsLevelList.add(specialSkillsQuestionDTOS.get(2));
-        specialSkillsLevelList.add(specialSkillsAnswerDTOS.get(6));
-        specialSkillsLevelList.add(specialSkillsAnswerDTOS.get(7));
+        specialSkillsLevelList.add(specialSkillQuestionDTOS.get(2));
+        specialSkillsLevelList.add(specialSkillAnswerDTOS.get(6));
+        specialSkillsLevelList.add(specialSkillAnswerDTOS.get(7));
 
         CommonSpecialSkillsDTO commonSpecialSkillsDTO = new CommonSpecialSkillsDTO(specialSkillsHasList, specialSkillsList, specialSkillsLevelList);
         return ResponseEntity.ok(ResponseDTO.of(commonSpecialSkillsDTO));

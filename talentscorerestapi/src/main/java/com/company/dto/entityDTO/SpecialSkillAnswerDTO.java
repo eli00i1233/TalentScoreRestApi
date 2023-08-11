@@ -7,11 +7,11 @@ import lombok.experimental.FieldDefaults;
 
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class SpecialSkillsAnswerDTO {
+public class SpecialSkillAnswerDTO {
     Integer id;
     String specialSkillsAnswers;
 
-    public SpecialSkillsAnswerDTO(SpecialSkillAnswer specialSkillsAnswers) {
+    public SpecialSkillAnswerDTO(SpecialSkillAnswer specialSkillsAnswers) {
         this.id = specialSkillsAnswers.getId();
         this.specialSkillsAnswers = specialSkillsAnswers.getSpecialSkillsAnswer();
     }
